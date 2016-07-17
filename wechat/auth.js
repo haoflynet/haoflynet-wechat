@@ -13,5 +13,9 @@ exports.checkSignature = function(req) {
     var tmpStr = tmpArr.join('');
     tmpStr = sha1(tmpStr);
 
-    return tmpStr === req.query.signature;
+    if(tmpStr === req.query.signature){
+        return req.query.echostr;
+    }else{
+        return false;
+    }
 };
